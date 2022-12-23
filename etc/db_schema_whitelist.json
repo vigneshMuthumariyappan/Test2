@@ -1,0 +1,17 @@
+{
+    "instagram_posts": {
+        "column": {
+            "entity_id": true,
+            "insta_post_id": true,
+            "captions": true,
+            "media_type": true,
+            "media_url": true,
+            "insta_post_url": true,
+            "created_at": true,
+            "insta_updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="ziffity" translate="label" sortOrder="10">
+            <label>Ziffity</label>
+        </tab>
+        <section id="zfinstagramfeed" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>InstagramFeed</label>
+            <tab>ziffity</tab>
+            <resource>Ziffity_InstagramFeed::config</resource>
+			<group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Instagram Setting</label>
+				<field id="enabled" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Select Yes to enable this module.]]></comment>
+                </field>
+                <field id="access_token" translate="label comment" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>User Token</label>
+                    <comment><![CDATA[Refer to this <a href="https://developers.facebook.com/docs/instagram-basic-display-api/overview#instagram-user-access-tokens" target="_blank">link</a> to get the user token]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+			</group>
+            <group id="display" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">		
+                <label>Instagram Display Setting</label>		
+                <field id="hashtag" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Hashtag Filter</label>
+                    <comment>Enter comma seperated hashtag Ex: NewYear,Christmas,Easter</comment>
+                </field>
+				<field id="total_number" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Total number of photos</label>
+                    <validate>validate-no-empty validate-digits validate-digits-range digits-range-1-25</validate>
+                    <comment>The maximum number is 25.</comment>
+                </field>
+				<field id="number_row" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Number of row</label>
+                    <comment>This value only applies to desktop and images will be automatically responsive depending on the device</comment>
+                    <validate>validate-zero-or-greater validate-digits</validate>
+                </field>
+                <field id="show_caption" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show Caption</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes to show caption when hover image.</comment>
+                </field>
+                <field id="instacron" translate="label comment" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Cron Setting</label>
+                    <comment>Enter Schedule Time</comment>
+                </field>
+                <field id="instarefreshcron" translate="label comment" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Cron Setting</label>
+                    <comment>Enter Schedule Time To Refresh Key</comment>
+                </field>
+                <field id="log" translate="label" type="select" sortOrder="26" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Log</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Debugging Purpose</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

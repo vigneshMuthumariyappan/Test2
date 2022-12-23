@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Ziffity\InstagramFeed\Api\InstaGramRepositoryInterface"
+                type="Ziffity\InstagramFeed\Model\InstaGramRepository"/>
+    <preference for="Ziffity\InstagramFeed\Api\Data\InstaGramInterface" type="Ziffity\InstagramFeed\Model\Data\InstaGram"/>
+    <preference for="Ziffity\InstagramFeed\Api\Data\InstaGramSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults"/>
+    <!-- Ziffity Instagram Feed Logger -->
+    <type name="Ziffity\InstagramFeed\Service\Logger\InstaHandler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Ziffity\InstagramFeed\Service\Logger\InstaLogger">
+        <arguments>
+            <argument name="name" xsi:type="string">InstaGram</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Ziffity\InstagramFeed\Service\Logger\InstaHandler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

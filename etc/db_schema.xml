@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<table name="instagram_posts" resource="default" engine="innodb" comment="InstaGram Posts">
+		<column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true"
+				comment="Entity Id"/>
+        <column xsi:type="varchar" name="insta_post_id" nullable="false" length="255" comment="Insta Post Id"/>
+        <column xsi:type="varchar" name="captions" nullable="false" length="255" comment="Captions"/>
+		<column xsi:type="varchar" name="media_type" nullable="false" length="255" comment="Media Type"/>
+        <column xsi:type="varchar" name="media_url" nullable="false" length="255" comment="Media Url"/>
+        <column xsi:type="varchar" name="insta_post_url" nullable="false" length="255" comment="Insta Post Url"/>
+		<column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+				comment="Post Created"/>
+		<column xsi:type="timestamp" name="insta_updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+				comment="Post Updated"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="entity_id"/>
+		</constraint>
+	</table>
+</schema>
